@@ -7,7 +7,7 @@
 		<title>reveal.js</title>
 
 		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css">
+		<link rel="stylesheet" href="css/theme/moon.css">
 
 		<!-- Theme used for syntax highlighting of code -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
@@ -26,14 +26,15 @@
 			<div class="slides">
 				<section>
 					<h2>TypeScript</h2>
-					<h3></h3>
+					<h3>JavaScript that scales.</h3>
+					<br>
 					<br>
 					<br>
 					<br><small>Created by <a href="https://github.com/mbulldozer">Aleksandr Pauliukavets</a></small>
 				</section>
 				<section>
 					<h2>Installation</h2>
-					<h3>Visual Studio 2015</h3>
+					<h3>Visual Studio</h3>
 					<p>Plugin <a href="https://www.microsoft.com/en-us/download/details.aspx?id=48593">available to download</a>.</p>
 					<h3>Node.js</h3>
 					<pre><code>npm install -g typescript</code></pre>
@@ -41,8 +42,112 @@
 					<pre><code>tsc source.ts</code></pre>
 				</section>
 				<section>
-					
+					<h3>Benefits of TypeScript</h3>
+					<ul>
+						<li>Static typing.</li>
+						<li>JavaScript super-set.</li>
+						<li>Plenty of tools! </li>
+						<li>Great community and documentation.</li>
+						<li>Syntax sugar.</li>
+						<li>Future today...</li>
+					</ul>
 				</section>
+				<section>
+					<h3>Types</h3>
+					<ul>
+						<li>All types are subtypes of a single top type called the Any type.</li>
+						<li>Represents any JavaScript value with no constraints.</li>
+					</ul>
+					<h4><br>Variable Types:</h4>
+					<ul>
+						<li>Number</li>
+						<li>String</li>
+						<li>Boolean</li>
+						<li>Array</li>
+						<li>Enum</li>
+						<li>Any</li>
+						<li>Void</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Static Types</h3>
+					<p>TypeScript adds optional static types to JavaScript, this means that you can declare a typed variable:</p>
+					<pre><code>let variableName: typeScriptType = value;</code></pre>
+					<p>And the type of this variable will be the same in your development process thanks to the type checking at compile time:</p>
+					<pre><code>let a: string = “Hello TypeScript!”; // string
+a = 0; // Error!</code></pre>
+					<p>The transpiler would alert us of this error with a message like: Type “number” is not assignable to type” string”.</p>
+				</section>
+				<section>
+					<h3>Functions</h3>
+					<p>TypeScript adds new capabilities to these functions, one of them being the capability to declare the type of each parameter in order to create the signature:</p>
+					<pre><code>function add(x: number, y: number) {
+  return x + y;
+}</code></pre>
+					<p>We can also add a return type, but TypeScript is able to infer it with the return statements:</p>
+					<pre><code>function add(x: number, y: number): number {
+  return x + y;
+}</code></pre>
+				</section>
+				<section>
+					<h3>Optional and Default Parameters</h3>
+					<p>Optional:</p>
+					<pre><code>function buildName(firstName: string, lastName?: string) {
+  if (lastName)
+	return firstName + " " + lastName;
+  else
+	return firstName;
+}</code></pre>
+					<p>Default:</p>
+					<pre><code>function buildName(firstName: string, lastName = "Smith") {
+	return firstName + " " + lastName;
+}</code></pre>
+				</section>
+				<section>
+					<h3>Function Overloads</h3>
+					<p>TypeScript lets us specify an overload list to supply multiple types for the same function. That way, we can describe to the type system exactly what our function accepts and what it returns:</p>
+					<pre><code>function addOvverload(x: string, y: string): string;
+function addOvverload(x: number, y: number): number;
+function addOvverload(x, y): any {
+  return x + y;
+}</code></pre>
+				</section>
+				<section>
+					<h3>Classes</h3>
+					<p>In general, a class is composed of a name, attributes and methods. The syntax to create a simple class looks like this:</p>
+					<pre><code>class Person {
+  name: string;
+							
+  constructor(name : string) {
+	this.name = name;
+  }
+							
+  greet() {
+	console.log("Hi! I'm " + this.name);
+  }
+}</code></pre>
+				</section>
+				<section>
+					<h3>Inheritance</h3>
+					<pre><code>class Animal {
+	move(distanceInMeters: number = 0) {
+		console.log(`Animal moved ${distanceInMeters}m.`);
+	}
+}
+						
+ class Dog extends Animal {
+	bark() {
+		console.log('Woof! Woof!');
+	}
+}
+						
+const dog = new Dog();</code></pre>
+				</section>
+				<section></section>
+				<section></section>
+				<section></section>
+				<section></section>
+				<section></section>
 			</div>
 		</div>
 
